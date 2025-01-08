@@ -9,7 +9,7 @@ const initDb = (callback) => {
     console.log('Db is already initialized!');
     return callback(null, _db);
   }
-  MongoClient.connect(process.env.BERNARD_MONGO,{ useNewUrlParser: true, useUnifiedTopology: true })
+  MongoClient.connect(process.env.BERNARD_MONGO)
     .then((client) => {
       _db = client;
       callback(null, _db);

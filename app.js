@@ -24,8 +24,3 @@ mongodb.initDb((err, mongodb) => {
         console.log(`Connected to DB and listening on ${port}`);
     }
 });
-
-process.on('uncaughtException', (err) => { console.error('Uncaught Exception:', err); });
-process.on('unhandledRejection', (reason, promise) => {
-    console.error('Unhandled Rejection at:', promise, 'reason:', reason);
-});
