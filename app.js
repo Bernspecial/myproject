@@ -20,12 +20,10 @@ mongodb.initDb((err, mongodb) => {
     if (err) {
         console.log(err);
     } else {
-        app.listen(port);
-        console.log(`Connected to DB and listening on ${port}`);
+        app.listen(port, () => {
+            console.log(`Connected to DB and listening on ${port}`);
+        });
+
     }
 });
-
-process.on('uncaughtException', (err) => { console.error('Uncaught Exception:', err); });
-process.on('unhandledRejection', (reason, promise) => {
-    console.error('Unhandled Rejection at:', promise, 'reason:', reason);
-});
+process.on('uncaughtException', (err) => { console.error('Uncaught Exception:', err); }); process.on('unhandledRejection', (reason, promise) => { console.error('Unhandled Rejection at:', promise, 'reason:', reason); });
